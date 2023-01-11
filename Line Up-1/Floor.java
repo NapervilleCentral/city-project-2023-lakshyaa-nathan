@@ -29,6 +29,8 @@ public class Floor extends JComponent implements Runnable
     @Override
     public void paintComponent(Graphics g)
     {
+        // required we are using Graphics2D objects
+        
         Graphics2D g2 = (Graphics2D) g;
         
         // invoke the draw method 
@@ -67,13 +69,20 @@ public class Floor extends JComponent implements Runnable
        public void draw (Graphics2D page)
        {
           page.setColor(Color.black);
-          page.fillRect(x, y, w, h);
+          
+          //       point  start  -> go this far, add to x, y 
+          //            10,10       50,50    -> goes to 60,60 from 10,10  
+          page.fillRect(x, y,       w, h); //.drawRect
        }
        
     public void run()
     {
         int running  = 0;
     while(true){
+        // change the x value to move back and forth 
+        
+        
+        
         
         if(running % 2 == 0)
             x +=20;

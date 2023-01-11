@@ -17,14 +17,17 @@ public class LineUp extends JComponent //implements Runnable
    private final int APPLET_HEIGHT = 150;
    private final int HEIGHT_MIN = 100;
    private final int VARIANCE = 45;
+   Color myColor;
    Random generator = new Random();
    //Graphics page;
-
+private poly1 myImage;
    //private StickFigure2 figure1 = new StickFigure2(100,150,Color.red,120);
-   private StickFigure figure1,figure2, figure3, figure4;
+   private StickFigure figure1,figure2, figure3, figure4, figure5;
    private Floor ground;
    private int running = 0;
 
+   
+   
    //-----------------------------------------------------------------
    //  Creates several stick figures with varying characteristics.
    //-----------------------------------------------------------------
@@ -45,15 +48,21 @@ public class LineUp extends JComponent //implements Runnable
       figure4 = new StickFigure(250, 150, Color.yellow, h4);
 
       ground = new Floor();
-
+      myImage = new poly1(Color.yellow);
+      
+      
       Thread t1 = new Thread(ground);
       t1.start();
       Thread t2 = new Thread(figure2);
       t2.start();
-      //Thread t3 = new Thread(figure3);
-      //t3.start();
+      Thread t3 = new Thread(figure3);
+      t3.start();
+      
+      Thread t4 = new Thread(figure4);
+      t4.start();
 
-
+      Thread t5 = new Thread(figure5);
+      t5.start();
       //setBackground (Color.black); //sets the color of background
       //setSize (APPLET_WIDTH, APPLET_HEIGHT); //Sets up applet window
 
@@ -74,6 +83,7 @@ public class LineUp extends JComponent //implements Runnable
       figure2.draw (page);
       figure3.draw (page);
       figure4.draw (page);
+      myImage.draw(page);
       //ground.draw(page);
 
       //Thread t1 = new Thread(ground);
@@ -117,5 +127,21 @@ public class LineUp extends JComponent //implements Runnable
 
    public void run()
    {
+       int running = 0;
+       while(true){
+           if (running%2==0){
+               myColor = Color.yellow;
+           }
+           else
+               myColor = Color.red;
+               
+           running++;
+           
+           try{ 
+               Thread.sleep(500);
+       } catch(Exception e){}
+       
+       System.out.println(myColor);
     }
+}
 }
