@@ -10,7 +10,7 @@ public class Cityscape
     public static void main(String [] args)throws InterruptedException{
         JFrame frame = new JFrame();
         
-        frame.setSize(500 /* x */, 500 /* y */);
+        frame.setSize(600 /* x */, 500 /* y */);
         frame.setTitle("Cityscape");
         frame.setBackground(Color.black);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -20,7 +20,7 @@ public class Cityscape
         CityscapeComponent component = new CityscapeComponent();
         
         
-        LineUp row = new LineUp();
+        Line_up row = new Line_up();
         //frame.add(component);
         frame.add(row);
         
@@ -29,12 +29,17 @@ public class Cityscape
         //  component.
         frame.setVisible(true);
         
+        
+        //frame.paintComponent;
+        
+        
+        /**
         // animate the cityscape
         for( int seconds = 0; seconds < ANIMATION_TIME_IN_SECONDS; seconds++ )
         {
             row.nextFrame();
             Thread.sleep(100);
         }
-        
+        **/
     }
 }

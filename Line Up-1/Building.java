@@ -71,9 +71,10 @@ public class Building extends JComponent implements Runnable
                                      //y needs to move, not height.
 
           page.setColor (color);
+          
           //                 x     y    h  w
-          page.drawRect(W, H, 20, 20);// head
-
+          
+             
           
 
        }
