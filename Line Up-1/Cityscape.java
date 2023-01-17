@@ -1,7 +1,11 @@
 import javax.swing.JFrame;
 import java.awt.*;
-
-
+ import java.awt.Graphics;
+    import java.awt.Graphics2D;
+    import javax.swing.JComponent;
+  import java.util.*;
+  import javax.swing.JFrame;
+  
 public class Cityscape 
 {
     // the cityscape will be animated for 60 seconds
@@ -15,23 +19,28 @@ public class Cityscape
         frame.setBackground(Color.black);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         
+      
+        
         
         // a frame contains a single component; create the Cityscape component and add it to the frame
-        CityscapeComponent component = new CityscapeComponent();
+        //CityscapeComponent component = new CityscapeComponent();
         
         
-        Line_up row = new Line_up();
+        //Line_up row = new Line_up();
+        
+        Sky sky = new Sky(0, 0, 0, 0);
         //frame.add(component);
-        frame.add(row);
+        //frame.add(row);
         
         
         // make the frame visible which will result in the paintComponent method being invoked on the
         //  component.
-        frame.setVisible(true);
+        //frame.setVisible(true);
         
         
         //frame.paintComponent;
         
+
         
         /**
         // animate the cityscape

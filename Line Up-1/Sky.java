@@ -1,0 +1,104 @@
+import java.awt.*;
+    import java.util.*;
+    
+    import java.awt.Graphics;
+    import java.awt.Graphics2D;
+    import javax.swing.JComponent;
+/**
+ * Write a description of class Floor here.
+ * 
+ * @author (your name) 
+ * @version (a version number or a date)
+ */
+public class Sky// extends JComponent implements Runnable
+{
+    // instance variables - replace the example below with your own
+    private int x,y,w,h;
+
+    /**
+     * Constructor for objects of class Floor
+     */
+    public Sky(int x, int y, int w, int h)
+    {
+        x = 50;
+        y = 50;
+        w = 25;
+        h = 10;
+    }
+
+    //@Override
+    public void paintComponent(Graphics g)
+    {
+        // required we are using Graphics2D objects
+        
+        Graphics2D g2 = (Graphics2D) g;
+        
+        // invoke the draw method 
+        // ...
+        draw(g2);
+        
+        
+    }
+    
+    /**
+     * Animate the cityscape by updating the objects such that they appear to be animated when
+     *      they are next drawn.
+     *
+     */
+    /**
+    public void setX(int running)
+    {
+        // update the objects in the cityscape so they are animated
+        // ...
+        //height = 100 +generator.nextInt(45);
+        
+        if (running % 2 == 0)
+            x +=20;
+        else
+            x -= 20;
+        
+        
+        
+        // request that the Java Runtime repaints this component by invoking its paintComponent method
+        //  do not explicitly invoke the paintComponent method
+        repaint();
+    }
+    **/
+       //-----------------------------------------------------------------
+       //  Draws this figure relative to baseX, baseY, and height.
+       //-----------------------------------------------------------------
+       public void draw (Graphics2D page)
+       {
+          page.setColor(Color.black);
+          
+          //       point  start  -> go this far, add to x, y 
+          //            10,10       50,50    -> goes to 60,60 from 10,10  
+          page.fillRect(x, y,       w, h); //.drawRect
+       }
+       
+       
+       /**
+    public void run()
+    {
+        int running  = 0;
+    while(true){
+        // change the x value to move back and forth 
+        
+        
+        
+        
+        if(running % 2 == 0)
+            x +=20;
+        else
+            x -= 20;
+        running ++;
+            try{
+            Thread.sleep(17);
+        }catch (Exception e){}
+        
+        System.out.print(x+"-----------------");
+        //repaint();
+    }
+  **/
+    }
+
