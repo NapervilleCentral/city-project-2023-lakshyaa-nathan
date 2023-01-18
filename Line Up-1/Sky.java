@@ -10,7 +10,7 @@ import java.awt.*;
  * @author (your name) 
  * @version (a version number or a date)
  */
-public class Sky// extends JComponent implements Runnable
+public class Sky extends JComponent implements Runnable
 {
     // instance variables - replace the example below with your own
     private int x,y,w,h;
@@ -18,15 +18,15 @@ public class Sky// extends JComponent implements Runnable
     /**
      * Constructor for objects of class Floor
      */
-    public Sky(int x, int y, int w, int h)
+    public Sky()
     {
         x = 50;
         y = 50;
-        w = 25;
+        w = 10;
         h = 10;
     }
 
-    //@Override
+    @Override
     public void paintComponent(Graphics g)
     {
         // required we are using Graphics2D objects
@@ -45,7 +45,6 @@ public class Sky// extends JComponent implements Runnable
      *      they are next drawn.
      *
      */
-    /**
     public void setX(int running)
     {
         // update the objects in the cityscape so they are animated
@@ -63,21 +62,19 @@ public class Sky// extends JComponent implements Runnable
         //  do not explicitly invoke the paintComponent method
         repaint();
     }
-    **/
+    
        //-----------------------------------------------------------------
        //  Draws this figure relative to baseX, baseY, and height.
        //-----------------------------------------------------------------
        public void draw (Graphics2D page)
        {
-          page.setColor(Color.black);
+          page.setColor(Color.blue);
           
           //       point  start  -> go this far, add to x, y 
           //            10,10       50,50    -> goes to 60,60 from 10,10  
           page.fillRect(x, y,       w, h); //.drawRect
        }
        
-       
-       /**
     public void run()
     {
         int running  = 0;
@@ -99,6 +96,6 @@ public class Sky// extends JComponent implements Runnable
         System.out.print(x+"-----------------");
         //repaint();
     }
-  **/
+  
     }
-
+}

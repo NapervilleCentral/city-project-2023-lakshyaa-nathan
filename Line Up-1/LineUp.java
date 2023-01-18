@@ -63,8 +63,8 @@ private poly1 myImage;
 
       Thread t5 = new Thread(figure5);
       t5.start();
-      //setBackground (Color.black); //sets the color of background
-      //setSize (APPLET_WIDTH, APPLET_HEIGHT); //Sets up applet window
+      setBackground (Color.black); //sets the color of background
+      setSize (APPLET_WIDTH, APPLET_HEIGHT); //Sets up applet window
 
       //figure2.draw(page);
 
@@ -84,7 +84,7 @@ private poly1 myImage;
       figure3.draw (page);
       figure4.draw (page);
       myImage.draw(page);
-      //ground.draw(page);
+      ground.draw(page);
 
       //Thread t1 = new Thread(ground);
       //t1.start();

@@ -13,27 +13,26 @@
 
 public class Building extends JComponent implements Runnable
     {
-       private int W;     // center of figure
-       
-       private Color color;   // color of stick figure
-       private int H;    // height of stick figure
-       //Random generator = new Random();
+       private int baseX;     // center of building
+       private int baseY;     // floor (bottom of building)
+       private Color color;   // color of building 
+       private int height;    // height of building
+       Random generator = new Random();
 
        //-----------------------------------------------------------------
        //  Sets up the stick figure's primary attributes.
        //-----------------------------------------------------------------
-       public Building (int width, int height, Color shade)
+       public Building (int center, int bottom, Color shade, int size)
        {
-          W = width;
-          
+          baseX = center;
+          baseY = bottom;
           color = shade;
-          H = height;
+          height = size;
        }
 
        /**
         * setHeight method
         */
-       /*
        public void setHeight(int size){
            //for (int i = 0; i<10000;i++)
            //{
@@ -41,7 +40,7 @@ public class Building extends JComponent implements Runnable
            System.out.println(color);
           //}
        }
-*/
+
        /**
      * This method is invoked by the Java Run-Time whenever the component needs to be redrawn.
      * It does not need to be invoked explicitly.
@@ -61,35 +60,60 @@ public class Building extends JComponent implements Runnable
 
     }
 
-   
+    /**
+     * Animate the cityscape by updating the objects such that they appear to be animated when
+     *      they are next drawn.
+     *
+     */
+    public void nextFrame()
+    {
+        // update the objects in the cityscape so they are animated
+        // ...
+        height = 100 +generator.nextInt(45);
+
+
+
+        // request that the Java Runtime repaints this component by invoking its paintComponent method
+        //  do not explicitly invoke the paintComponent method
+        repaint();
+    }
+
        //-----------------------------------------------------------------
        //  Draws this figure relative to baseX, baseY, and height.
        //-----------------------------------------------------------------
        public void draw (Graphics2D page)
        {
-          //int top = baseY - height;  // top of head
+          int top = baseY - height;  // top of head
                                      //y needs to move, not height.
 
           page.setColor (color);
-          
           //                 x     y    h  w
-          
-             
-          
+          page.drawRect(/**baseX-**/30, /**top**/ 30, 20, 10);// building 
 
+          
+          /**
+          page.drawLine(baseX, top+20, baseX, baseY-30);// trunk
+                                    //remember, increase y actually moves closer to bottom
+
+          page.drawLine (baseX, baseY-30, baseX-15, baseY);  // legs
+          page.drawLine (baseX, baseY-30, baseX+15, baseY);
+
+          page.drawLine (baseX, baseY-70, baseX-25, baseY-70);  // arms
+          page.drawLine (baseX, baseY-70, baseX+20, baseY-85);
+            **/
        }
 
        
        public void run()
         {
         while(true){
-            //int newHeight = 100 + generator.nextInt(45);
-            //H = newHeight;
+            int newHeight = 100 + generator.nextInt(45);
+            height = newHeight;
             try{
                 Thread.sleep(17);
             }catch (Exception e){}
 
-            System.out.print(H);
+            System.out.print(height);
         }
 
         }
