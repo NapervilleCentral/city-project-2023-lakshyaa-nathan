@@ -10,7 +10,7 @@ import java.awt.*;
  * @author (your name) 
  * @version (a version number or a date)
  */
-public class Sky extends JComponent implements Runnable
+public class Street extends JComponent implements Runnable
 {
     // instance variables - replace the example below with your own
     private int x,y,w,h;
@@ -18,12 +18,12 @@ public class Sky extends JComponent implements Runnable
     /**
      * Constructor for objects of class Floor
      */
-    public Sky()
+    public Street()
     {
-        x = 0;
-        y = 0;
-        w = 1000;
-        h = 1000;
+        x = 50;
+        y = 50;
+        w = 10;
+        h = 10;
     }
 
     @Override

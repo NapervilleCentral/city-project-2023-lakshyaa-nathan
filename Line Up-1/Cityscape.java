@@ -23,7 +23,7 @@ public class Cityscape
         // create and configure the frame (window) for the program
         JFrame frame = new JFrame();
         
-        frame.setSize(300 /* x */, 300 /* y */);
+        frame.setSize(1000 /* x */, 1000 /* y */);
         frame.setTitle("Cityscape");
         frame.setBackground(Color.red);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -33,7 +33,7 @@ public class Cityscape
         //int h2 = 100 + (int)(Math.random()*45);
         
         // a frame contains a single component; create the Cityscape component and add it to the frame
-        citycomp component = new citycomp();
+        //citycomp component = new citycomp();
         
         
         Line_up row = new Line_up();

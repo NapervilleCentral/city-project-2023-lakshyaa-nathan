@@ -69,7 +69,7 @@ public class Building extends JComponent implements Runnable
     {
         // update the objects in the cityscape so they are animated
         // ...
-        height = 100 +generator.nextInt(45);
+        //height = 100 +generator.nextInt(45);
 
 
 
@@ -83,24 +83,15 @@ public class Building extends JComponent implements Runnable
        //-----------------------------------------------------------------
        public void draw (Graphics2D page)
        {
-          int top = baseY - height;  // top of head
+          //int top = baseY - height;  // top of head
                                      //y needs to move, not height.
 
           page.setColor (color);
           //                 x     y    h  w
-          page.drawRect(/**baseX-**/30, /**top**/ 30, 20, 10);// building 
+          page.fillRect(baseX,baseY , height, 100);// building 
 
           
-          /**
-          page.drawLine(baseX, top+20, baseX, baseY-30);// trunk
-                                    //remember, increase y actually moves closer to bottom
-
-          page.drawLine (baseX, baseY-30, baseX-15, baseY);  // legs
-          page.drawLine (baseX, baseY-30, baseX+15, baseY);
-
-          page.drawLine (baseX, baseY-70, baseX-25, baseY-70);  // arms
-          page.drawLine (baseX, baseY-70, baseX+20, baseY-85);
-            **/
+        
        }
 
        
