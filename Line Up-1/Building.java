@@ -89,7 +89,7 @@ public class Building extends JComponent implements Runnable
           page.setColor (color);
           //                 x     y    h  w
           page.fillRect(baseX,baseY , height, 300);// building 
-
+                // don't use some parameters, make sure parameters are useful
           
         
        }
