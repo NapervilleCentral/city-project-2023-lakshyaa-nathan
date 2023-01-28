@@ -18,12 +18,17 @@ public class Line_up extends JComponent //implements Runnable
    private final int HEIGHT_MIN = 100;
    private final int VARIANCE = 45;
    Color myColor;
-   Random generator = new Random();
-   //Graphics page;
-   //private poly1 myImage;
-   //private StickFigure2 figure1 = new StickFigure2(100,150,Color.red,120);
+   clouds cloud;
+   Street street;
+   sunsetskytrial SKY;
+   windows window;
+   
+   
+   
    private Building building1, building2, building3, building4, building5;
+   private windows window1, window2, window3, window4, window5;
    private Sky sky;
+   
    private int running = 0;
 
    
@@ -31,84 +36,100 @@ public class Line_up extends JComponent //implements Runnable
    //-----------------------------------------------------------------
    //  Creates several stick figures with varying characteristics.
    //-----------------------------------------------------------------
-   public Line_up () //init in applet is like constructor; runs only once
+    public Line_up () //init in applet is like constructor; runs only once
    {                   //Different than start.
-      /*int h1,h2,h3,h4;  // heights of stick figures
-
-      h1 = HEIGHT_MIN + generator.nextInt(VARIANCE);
-      h2 = HEIGHT_MIN + generator.nextInt(VARIANCE);
-      h3 = HEIGHT_MIN + generator.nextInt(VARIANCE);
-      h4 = HEIGHT_MIN + generator.nextInt(VARIANCE);
-*/
-
-      building1 = new Building (50, 500, Color.red, 100);
-      //x, y, color, height
-      building2 = new Building(200, 500, Color.green, 100);
-      building3 = new Building(350, 500, Color.cyan, 100);
-      building4 = new Building(500, 500, Color.yellow, 100);
-
-      sky = new Sky();
-      //myImage = new poly1(Color.yellow);
       
-      /*
-      Thread t1 = new Thread(sky);
-      t1.start();
-      Thread t2 = new Thread(building2);
+      sky = new Sky(0, 0);
+      SKY = new sunsetskytrial();
+        // x, y, width, height, color
+        
+        
+      Color mygray = new Color(119,136,153);
+      building1 = new Building (150, 200,200, 600,  Color.black);
+     
+    
+      building2 = new Building(400, 250,200, 600,  mygray);
+      building3 = new Building(650, 225,200 , 500, Color.black);
+      building4 = new Building(950, 125, 200, 650, Color.black);
+      building5 = new Building(1200, 300, 200, 700, mygray);
+      
+      window2 = new windows(building2.getBuildingX());
+      window1 = new windows(building1.getBuildingX());
+      
+      window3 = new windows(building3.getBuildingX());
+      window4 = new windows(building4.getBuildingX());
+      window5 = new windows(building5.getBuildingX());
+      
+      
+      
+      
+      cloud = new clouds(60);
+      
+      street = new Street(0, 650,1500 , 250);
+      
+      
+      
+      Thread t2 = new Thread(window1);
       t2.start();
-      Thread t3 = new Thread(building3);
+      Thread t3 = new Thread(window2);
       t3.start();
       
-      Thread t4 = new Thread(building4);
+      Thread t4 = new Thread(window3);
       t4.start();
 
-      Thread t5 = new Thread(building5);
+      Thread t5 = new Thread(window4);
       t5.start();
-      */
-      //setBackground (Color.black); //sets the color of background
-      //setSize (APPLET_WIDTH, APPLET_HEIGHT); //Sets up applet window
+      
+      
+      
+      Thread t6 = new Thread(cloud);
+      t6.start();
+      
+      Thread t1 = new Thread(window5);
+      t1.start();
+      
+     
 
-      //figure2.draw(page);
+      
 
 
    }
 
    //-----------------------------------------------------------------
-   //  Paints the stick figures on the applet.
+   //  Paints the figures on the applet.
    //-----------------------------------------------------------------
    public void paintComponent(Graphics g)
     {
         Graphics2D page = (Graphics2D) g;
-       //page = this.page;
+       
+     
       sky.draw(page);
+      SKY.draw(page);
+      cloud.draw(page);
       building1.draw (page);
       building2.draw (page);
       building3.draw (page);
       building4.draw (page);
-     // building5.draw(page);
-      //sky.draw(page);
+      building5.draw(page);
+      window1.draw(page);
+      window2.draw(page);
+      window3.draw(page);
+      window4.draw(page);
+      window5.draw(page);
+      street.draw(page);
+      
+      
 
-      //Thread t1 = new Thread(ground);
-      //t1.start();
-
-      /*
-      int newHeight = HEIGHT_MIN + generator.nextInt(VARIANCE);
-      figure1.setHeight(newHeight);
-      newHeight = HEIGHT_MIN + generator.nextInt(VARIANCE);
-      figure2.setHeight(newHeight);
-      newHeight = HEIGHT_MIN + generator.nextInt(VARIANCE);
-      figure3.setHeight(newHeight);
-      newHeight = HEIGHT_MIN + generator.nextInt(VARIANCE);
-      figure4.setHeight(newHeight);
-      */
-      //try{
+      
+      try{
           //pause program for quarter-sec (in miliseconds)
-          //Thread.sleep(250);
-        //}
-      //catch(InterruptedException e){}
+          Thread.sleep(250);
+        }
+      catch(InterruptedException e){}
 
-      //figure1.draw(page);
+      
 
-      //repaint(); //IMPORTANT LINE
+      repaint(); 
    }
 
    public void nextFrame()
@@ -120,22 +141,14 @@ public class Line_up extends JComponent //implements Runnable
    }
 
    public void run()
-   {/*
+   {
        int running = 0;
        while(true){
-           if (running%2==0){
-               myColor = Color.yellow;
-           }
-           else
-               myColor = Color.red;
-               
-           running++;
            
-           try{ 
-               Thread.sleep(500);
-       } catch(Exception e){}
+          
        
-       System.out.println(myColor);
-    }*/
+    }
+    
   }
-}
+
+    }
