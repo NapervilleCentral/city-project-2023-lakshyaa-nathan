@@ -13,17 +13,16 @@ import java.awt.*;
 public class Sky extends JComponent implements Runnable
 {
     // instance variables - replace the example below with your own
-    private int x,y,w,h;
+    private int xlevel, ylevel,radius;
 
     /**
-     * Constructor for objects of class Floor
+     * Constructor for objects of class Sky
      */
-    public Sky()
+    public Sky(int xcoord, int ycoord)
     {
-        x = 0;
-        y = 0;
-        w = 1000;
-        h = 1000;
+        xlevel = xcoord;
+        ylevel = ycoord;
+        
     }
 
     @Override
@@ -47,19 +46,7 @@ public class Sky extends JComponent implements Runnable
      */
     public void setX(int running)
     {
-        // update the objects in the cityscape so they are animated
-        // ...
-        //height = 100 +generator.nextInt(45);
         
-        if (running % 2 == 0)
-            x +=20;
-        else
-            x -= 20;
-        
-        
-        
-        // request that the Java Runtime repaints this component by invoking its paintComponent method
-        //  do not explicitly invoke the paintComponent method
         repaint();
     }
     
@@ -68,32 +55,17 @@ public class Sky extends JComponent implements Runnable
        //-----------------------------------------------------------------
        public void draw (Graphics2D page)
        {
-          page.setColor(Color.blue);
+          Color skyblue = new Color (102,178,255);
+          page.setColor(skyblue);
           
-          //       point  start  -> go this far, add to x, y 
-          //            10,10       50,50    -> goes to 60,60 from 10,10  
-          page.fillRect(x, y,       w, h); //.drawRect
+          page.fillRect(xlevel, ylevel, 1500, 1500);
        }
        
     public void run()
     {
         int running  = 0;
     while(true){
-        // change the x value to move back and forth 
         
-        
-        
-        
-        if(running % 2 == 0)
-            x +=20;
-        else
-            x -= 20;
-        running ++;
-            try{
-            Thread.sleep(17);
-        }catch (Exception e){}
-        
-        System.out.print(x+"-----------------");
         //repaint();
     }
   
