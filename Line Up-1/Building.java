@@ -1,7 +1,7 @@
     //********************************************************************
     //  StickFigure.java       Author: Lewis/Loftus/Cocking
     //
-    //  Represents a graphical stick figure.
+    //  Represents a graphical building.
     //********************************************************************
 
     import java.awt.*;
@@ -16,38 +16,27 @@ public class Building extends JComponent implements Runnable
        private int baseX;     // center of building
        private int baseY;     // floor (bottom of building)
        private Color color;   // color of building 
-       private int height;    // height of building
+       private int height, width;    // height and width of building
        Random generator = new Random();
 
        //-----------------------------------------------------------------
-       //  Sets up the stick figure's primary attributes.
+       //  Sets up the building's primary attributes.
        //-----------------------------------------------------------------
-       public Building (int center, int bottom, Color shade, int size)
+       public Building (int xcoord, int ycoord,int W , int H,Color shade)
        {
-          baseX = center;
-          baseY = bottom;
+          baseX = xcoord;
+          baseY = ycoord;
           color = shade;
-          height = size;
+          height = H;
+          width = W;
        }
 
-       /**
-        * setHeight method
-        */
-       public void setHeight(int size){
-           //for (int i = 0; i<10000;i++)
-           //{
-           height = size;
-           System.out.println(color);
-          //}
+       
+       
+       public int getBuildingX(){
+           return this.baseX;
        }
-
-       /**
-     * This method is invoked by the Java Run-Time whenever the component needs to be redrawn.
-     * It does not need to be invoked explicitly.
-     *
-     * @param g a reference to the Graphics object used for all drawing operations
-     *
-     */
+       
     @Override
     public void paintComponent(Graphics g)
     {
@@ -68,9 +57,7 @@ public class Building extends JComponent implements Runnable
     public void nextFrame()
     {
         // update the objects in the cityscape so they are animated
-        // ...
-        //height = 100 +generator.nextInt(45);
-
+        
 
 
         // request that the Java Runtime repaints this component by invoking its paintComponent method
@@ -79,17 +66,16 @@ public class Building extends JComponent implements Runnable
     }
 
        //-----------------------------------------------------------------
-       //  Draws this figure relative to baseX, baseY, and height.
+       //  Draws this figure relative to baseX, baseY, height, and width.
        //-----------------------------------------------------------------
        public void draw (Graphics2D page)
        {
-          //int top = baseY - height;  // top of head
-                                     //y needs to move, not height.
+          
 
           page.setColor (color);
           //                 x     y    h  w
-          page.fillRect(baseX,baseY , height, 300);// building 
-                // don't use some parameters, make sure parameters are useful
+          page.fillRect(baseX,baseY , width, height);// building 
+               
           
         
        }
@@ -98,13 +84,8 @@ public class Building extends JComponent implements Runnable
        public void run()
         {
         while(true){
-            int newHeight = 100 + generator.nextInt(45);
-            height = newHeight;
-            try{
-                Thread.sleep(17);
-            }catch (Exception e){}
-
-            System.out.print(height);
+            
+            
         }
 
         }
