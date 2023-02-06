@@ -23,7 +23,7 @@ public class Cityscape
         // create and configure the frame (window) for the program
         JFrame frame = new JFrame();
         
-        frame.setSize(1000 /* x */, 1000 /* y */);
+        frame.setSize(3000 /* x */, 3000 /* y */);
         frame.setTitle("Cityscape");
         frame.setBackground(Color.red);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);

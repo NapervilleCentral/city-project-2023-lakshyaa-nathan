@@ -20,8 +20,8 @@ public class Street extends JComponent implements Runnable
      */
     public Street()
     {
-        x = 50;
-        y = 50;
+        x = 0;
+        y = 250;
         w = 10;
         h = 10;
     }
@@ -68,7 +68,7 @@ public class Street extends JComponent implements Runnable
        //-----------------------------------------------------------------
        public void draw (Graphics2D page)
        {
-          page.setColor(Color.blue);
+          page.setColor(Color.gray);
           
           //       point  start  -> go this far, add to x, y 
           //            10,10       50,50    -> goes to 60,60 from 10,10  

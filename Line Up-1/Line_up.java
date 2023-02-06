@@ -52,7 +52,7 @@ public class Line_up extends JComponent //implements Runnable
       building3 = new Building(650, 225,200 , 500, Color.black);
       building4 = new Building(950, 125, 200, 650, Color.black);
       building5 = new Building(1200, 300, 200, 700, mygray);
-      
+      street = new Street();
       window2 = new windows(building2.getBuildingX());
       window1 = new windows(building1.getBuildingX());
       
@@ -65,7 +65,7 @@ public class Line_up extends JComponent //implements Runnable
       
       cloud = new clouds(60);
       
-      street = new Street(/*0, 650,1500 , 250*/);
+      
       
       
       
