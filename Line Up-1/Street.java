@@ -12,18 +12,18 @@ import java.awt.*;
  */
 public class Street extends JComponent implements Runnable
 {
-    // instance variables - replace the example below with your own
+    // instance variables 
     private int x,y,w,h;
 
     /**
-     * Constructor for objects of class Floor
+     * Constructor for objects of class Street
      */
-    public Street()
+    public Street(int xcoord, int ycoord, int width, int height)
     {
-        x = 0;
-        y = 250;
-        w = 10;
-        h = 10;
+        x = xcoord;
+        y = ycoord;
+        w = width;
+        h = height;
     }
 
     @Override
@@ -34,7 +34,7 @@ public class Street extends JComponent implements Runnable
         Graphics2D g2 = (Graphics2D) g;
         
         // invoke the draw method 
-        // ...
+        
         draw(g2);
         
         
@@ -48,53 +48,51 @@ public class Street extends JComponent implements Runnable
     public void setX(int running)
     {
         // update the objects in the cityscape so they are animated
-        // ...
-        //height = 100 +generator.nextInt(45);
-        
-        if (running % 2 == 0)
-            x +=20;
-        else
-            x -= 20;
         
         
         
-        // request that the Java Runtime repaints this component by invoking its paintComponent method
-        //  do not explicitly invoke the paintComponent method
+        
         repaint();
     }
     
        //-----------------------------------------------------------------
-       //  Draws this figure relative to baseX, baseY, and height.
+       //  Draws the street + curb
        //-----------------------------------------------------------------
        public void draw (Graphics2D page)
        {
-          page.setColor(Color.gray);
+          //page.setColor(Color.gray);
+          Color graystreet = new Color (105,105,105);
+          page.setColor(graystreet);
+          
           
           //       point  start  -> go this far, add to x, y 
           //            10,10       50,50    -> goes to 60,60 from 10,10  
           page.fillRect(x, y,       w, h); //.drawRect
+          
+          
+          Color lightercurb = new Color(224, 224, 224);
+          page.setColor(lightercurb);
+          page.fillRect(0,650,1500, 20); //like a curb
+          
+          int rect = 20;
+          int rectspace = 10;
+          while(rect>0){
+              page.setColor(Color.white);
+              page.fillRect(rectspace,725,30,15);
+              rect-=1;
+              rectspace+=100;
+          }
        }
        
     public void run()
     {
         int running  = 0;
     while(true){
-        // change the x value to move back and forth 
         
         
         
         
-        if(running % 2 == 0)
-            x +=20;
-        else
-            x -= 20;
-        running ++;
-            try{
-            Thread.sleep(17);
-        }catch (Exception e){}
-        
-        System.out.print(x+"-----------------");
-        //repaint();
+        repaint();
     }
   
     }
