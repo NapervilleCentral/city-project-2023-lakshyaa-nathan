@@ -65,7 +65,7 @@ public class Line_up extends JComponent //implements Runnable
       
       cloud = new clouds(60);
       
-      street = new Street(0, 650,1500 , 250);
+      street = new Street(/*0, 650,1500 , 250*/);
       
       
       
